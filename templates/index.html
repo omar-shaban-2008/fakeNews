@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake News Analyzer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>analizzatore di fake news</h1>
+        <form method="POST">
+            <label for="titolo">Inserisci il titolo della notizia:</label>
+            <input type="text" id="titolo" name="titolo" required>
+            <button type="submit">analizza</button>
+        </form>
+
+        {% if titolo %}
+        <div class="result">
+            <h2>risultato analisi:</h2>
+            <p><strong>Titolo:</strong> {{ titolo }}</p>
+            <p><strong>Punteggio:</strong> {{ punteggio }}</p>
+            <p><strong>Classificazione:</strong> {{ classificazione }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
