@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-
+#dizionari delle parole
 parole_sospette = {
     "scoperto": -3, "incredibile": -2, "mai visto": -3, "potere": -2,
     "segreto": -2, "conspiracy": -3, "rivelato": -2, "imminente": -2,
