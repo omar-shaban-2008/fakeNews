@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request
-#dizionari delle parole
 parole_sospette = {
     "scoperto": -3, "incredibile": -2, "mai visto": -3, "potere": -2,
     "segreto": -2, "conspiracy": -3, "rivelato": -2, "imminente": -2,
@@ -16,13 +15,11 @@ parole_rassicuranti = {
 
 app = Flask(__name__)
 
-#funzione per analizzare punteggio titolo
 def analizza_notizia(titolo):
     punteggio = 0
     #converte titolo in minuscolo e separa in parole
     parole = titolo.lower().split()
 
-    #calcolo punteggio
     for parola in parole:
         if parola in parole_sospette:
             punteggio += parole_sospette[parola]
@@ -30,7 +27,6 @@ def analizza_notizia(titolo):
             punteggio += parole_rassicuranti[parola]
     return punteggio
 
-#funzione per classificare notizia
 def classifica_notizia(punteggio):
     if punteggio <= -6:
         return "Fake News"
